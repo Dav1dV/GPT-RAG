@@ -125,8 +125,8 @@ var searchIndex = 'ragindex'
 // Requires version 2023-10-01-Preview or higher for indexProjections and MIS authResourceId.
 param searchApiVersion string = '2023-10-01-Preview'
 
-@description('Frequency of search reindexing. PT5M (5 min), PT1H (1 hour), P1D (1 day).')
-@allowed(['PT5M', 'PT1H', 'P1D'])
+@description('Frequency of search reindexing. PT5M (5 min), PT1H (1 hour), P1D (1 day), `` (never - manually on-demand only)')
+@allowed(['PT5M', 'PT1H', 'P1D', ''])
 param searchIndexInterval string = 'PT1H'
 @description('Use Search Service Managed Identity to Connect to data ingestion function?')
 @allowed([true, false])
