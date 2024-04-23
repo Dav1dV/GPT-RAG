@@ -110,6 +110,7 @@ param chatGptLlmMonitoring bool = true
 
 //docint
 var docintApiVersion = (location == 'eastus' || location == 'westus2' || location == 'westeurope') ? '2023-10-31-preview' : '2023-07-31'
+//  TODO Verify up-to-date
 
 // search
 @description('Orchestrator supports the following retrieval approaches: term, vector, hybrid(term + vector search), or use oyd feature of Azure OpenAI.')
@@ -417,6 +418,22 @@ module appServicePlan './core/host/appserviceplan.bicep' = {
     tags: tags
     sku: {
       name: 'P0v3'
+      /*
+        InvalidTemplateDeployment: The template deployment 'appserviceplan' is not valid according to the validation procedure. The tracking id is '971fa58f-e53f-4fe6-a674-e084e9db275d'. See inner errors for details.
+        ValidationForResourceFailed: Validation failed for a resource. Check 'Error.Details[0]' for more information.
+        SubscriptionIsOverQuotaForSku: This region has quota of 0 instances for your subscription. Try selecting different region or SKU.
+      */
+
+//      name: 'B1'  // Debugging
+//      name: 'B2'  // Debugging
+
+//      name: 'F1'  // Debugging
+      /*
+        BadRequest: You tried creating a function app in the 'Free' SKU. Function Apps are not supported in Free and Shared plans. Please choose a different plan.
+        - You tried creating a function app in the 'Free' SKU. Function Apps are not supported in Free and Shared plans. Please choose a different plan.
+        Conflict: There was a conflict. 64 Bit worker processes cannot be used for the site as the plan does not allow it. For more information on pricing and features, please see: https://aka.ms/appservicepricingdetails
+        - There was a conflict. 64 Bit worker processes cannot be used for the site as the plan does not allow it. For more information on pricing and features, please see: https://aka.ms/appservicepricingdetails
+      */
       capacity: 1
     }
     kind: 'linux'

@@ -19,7 +19,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' = {
     sku: { family: 'A', name: 'standard' }
     enableSoftDelete: true
     publicNetworkAccess: publicNetworkAccess
-    enablePurgeProtection: true
+//    enablePurgeProtection: true  // Disabled until deployment tested since can't purge for 90 days
     accessPolicies: !empty(principalId) ? [
       {
         objectId: principalId

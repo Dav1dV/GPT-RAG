@@ -32,6 +32,9 @@
     "chatGptModelVersion": {
       "value": "0613"
     },
+    "chatGptDeploymentCapacity": {
+      "value": 20
+    },
     "openaiApiVersion": {
       "value": "2024-02-15-preview"
     },
