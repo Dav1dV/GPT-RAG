@@ -5,7 +5,7 @@ param accountName string
 //   name: guid(resourceGroup().id, account.id, principalId)  
 //   scope: account
 //   properties:{
-//     roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '5bd9cd88-fe45-4216-938b-f97437e15450')
+//     roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '5bd9cd88-fe45-4216-938b-f97437e15450')  // DocumentDB Account Contributor
 //     principalId: principalId
 //     principalType: 'ServicePrincipal'
 //   }

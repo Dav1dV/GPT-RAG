@@ -43,7 +43,7 @@ resource KeyVaultAccessRole 'Microsoft.Authorization/roleAssignments@2022-04-01'
   scope: keyVault
   properties: {
     principalId: principalId
-    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '4633458b-17de-408a-b874-0445c86b69e6')
+    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '4633458b-17de-408a-b874-0445c86b69e6')  // Key Vault Secrets User
     principalType: 'User'
   }
 }
