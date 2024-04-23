@@ -220,7 +220,7 @@ module blobDnsZone './core/network/private-dns-zones.bicep' = if (networkIsolati
   name: 'blob-dnzones'
   scope: resourceGroup
   params: {
-    dnsZoneName: 'privatelink.blob.core.windows.net' 
+    dnsZoneName: 'privatelink.blob.core.windows.net'
     tags: tags
     virtualNetworkName: vnet.outputs.name
   }
@@ -230,7 +230,7 @@ module documentsDnsZone './core/network/private-dns-zones.bicep' = if (networkIs
   name: 'documents-dnzones'
   scope: resourceGroup
   params: {
-    dnsZoneName: 'privatelink.documents.azure.com' 
+    dnsZoneName: 'privatelink.documents.azure.com'
     tags: tags
     virtualNetworkName: vnet.outputs.name
   }
@@ -240,7 +240,7 @@ module vaultDnsZone './core/network/private-dns-zones.bicep' = if (networkIsolat
   name: 'vault-dnzones'
   scope: resourceGroup
   params: {
-    dnsZoneName: 'privatelink.vaultcore.azure.net' 
+    dnsZoneName: 'privatelink.vaultcore.azure.net'
     tags: tags
     virtualNetworkName: vnet.outputs.name
   }
@@ -250,7 +250,7 @@ module websitesDnsZone './core/network/private-dns-zones.bicep' = if (networkIso
   name: 'websites-dnzones'
   scope: resourceGroup
   params: {
-    dnsZoneName: 'privatelink.azurewebsites.net' 
+    dnsZoneName: 'privatelink.azurewebsites.net'
     tags: tags
     virtualNetworkName: vnet.outputs.name
   }
@@ -260,7 +260,7 @@ module cognitiveservicesDnsZone './core/network/private-dns-zones.bicep' = if (n
   name: 'cognitiveservices-dnzones'
   scope: resourceGroup
   params: {
-    dnsZoneName: 'privatelink.cognitiveservices.azure.com' 
+    dnsZoneName: 'privatelink.cognitiveservices.azure.com'
     tags: tags
     virtualNetworkName: vnet.outputs.name
   }
@@ -270,7 +270,7 @@ module openaiDnsZone './core/network/private-dns-zones.bicep' = if (networkIsola
   name: 'openai-dnzones'
   scope: resourceGroup
   params: {
-    dnsZoneName: 'privatelink.openai.azure.com' 
+    dnsZoneName: 'privatelink.openai.azure.com'
     tags: tags
     virtualNetworkName: vnet.outputs.name
   }
@@ -280,7 +280,7 @@ module searchDnsZone './core/network/private-dns-zones.bicep' = if (networkIsola
   name: 'searchs-dnzones'
   scope: resourceGroup
   params: {
-    dnsZoneName: 'privatelink.search.windows.net' 
+    dnsZoneName: 'privatelink.search.windows.net'
     tags: tags
     virtualNetworkName: vnet.outputs.name
   }
@@ -329,7 +329,7 @@ module storage './core/storage/storage-account.bicep' = {
       enabled: true
       days: 7
     }
-  }  
+  }
 }
 
 module storagepe './core/network/private-endpoint.bicep' = if (networkIsolation) {
@@ -359,7 +359,7 @@ module cosmosAccount './core/db/cosmos.bicep' = {
     databaseName: dbDatabaseName
     tags: tags
     secretName: 'azureDBkey'
-    keyVaultName: keyVault.outputs.name    
+    keyVaultName: keyVault.outputs.name
   }
 }
 
@@ -455,7 +455,7 @@ module orchestrator './core/host/functions.bicep' = {
     runtimeName: 'python'
     runtimeVersion: funcAppRuntimeVersion
     minimumElasticInstanceCount: 1
-    allowedOrigins: [ '*' ]    
+    allowedOrigins: [ '*' ]
     appSettings:[
       {
         name: 'AZURE_DB_ID'
@@ -464,11 +464,11 @@ module orchestrator './core/host/functions.bicep' = {
       {
         name: 'AZURE_DB_NAME'
         value: dbDatabaseName
-      }      
+      }
       {
         name: 'AZURE_KEY_VAULT_NAME'
         value: keyVault.outputs.name
-      }      
+      }
       {
         name: 'AZURE_SEARCH_SERVICE'
         value: searchServiceName
@@ -484,7 +484,7 @@ module orchestrator './core/host/functions.bicep' = {
       {
         name: 'AZURE_SEARCH_USE_SEMANTIC'
         value: useSemanticReranking
-      }      
+      }
       {
         name: 'AZURE_SEARCH_API_VERSION'
         value: searchApiVersion
@@ -496,7 +496,7 @@ module orchestrator './core/host/functions.bicep' = {
       {
         name: 'AZURE_OPENAI_CHATGPT_MODEL'
         value: chatGptModelName
-      }      
+      }
       {
         name: 'AZURE_OPENAI_CHATGPT_DEPLOYMENT'
         value: chatGptDeploymentName
@@ -508,15 +508,15 @@ module orchestrator './core/host/functions.bicep' = {
       {
         name: 'AZURE_OPENAI_API_VERSION'
         value: openaiApiVersion
-      }      
+      }
       {
         name: 'AZURE_OPENAI_LOAD_BALANCING'
         value: false
-      }               
+      }
       {
         name: 'AZURE_OPENAI_EMBEDDING_MODEL'
         value: embeddingsModelName
-      }      
+      }
       {
         name: 'AZURE_OPENAI_EMBEDDING_DEPLOYMENT'
         value: embeddingsDeploymentName
@@ -540,8 +540,8 @@ module orchestrator './core/host/functions.bicep' = {
       {
         name: 'LOGLEVEL'
         value: 'INFO'
-      }                         
-    ]  
+      }
+    ]
   }
 }
 
@@ -567,7 +567,7 @@ module orchestratorKeyVaultAccess './core/security/keyvault-access.bicep' = {
     keyVaultName: keyVault.outputs.name
     principalId: orchestrator.outputs.identityPrincipalId
   }
-} 
+}
 
 // Give the orchestrator access to Cosmos
 module orchestratorCosmosAccess './core/security/cosmos-access.bicep' = {
@@ -577,7 +577,7 @@ module orchestratorCosmosAccess './core/security/cosmos-access.bicep' = {
     principalId: orchestrator.outputs.identityPrincipalId
     accountName: cosmosAccount.outputs.name
   }
-} 
+}
 
 // Give the orchestrator access to AOAI
 module orchestratorOaiAccess './core/security/openai-access.bicep' = {
@@ -587,7 +587,7 @@ module orchestratorOaiAccess './core/security/openai-access.bicep' = {
     principalId: orchestrator.outputs.identityPrincipalId
     openaiAccountName: openAi.outputs.name
   }
-} 
+}
 
 
 module frontEnd  'core/host/appservice.bicep'  = {
@@ -614,7 +614,7 @@ module frontEnd  'core/host/appservice.bicep'  = {
       {
         name: 'SPEECH_SYNTHESIS_LANGUAGE'
         value: speechSynthesisLanguage
-      }      
+      }
       {
         name: 'SPEECH_RECOGNITION_LANGUAGE'
         value: speechRecognitionLanguage
@@ -642,11 +642,11 @@ module frontEnd  'core/host/appservice.bicep'  = {
       {
         name: 'STORAGE_ACCOUNT'
         value: storageAccountName
-      } 
+      }
       {
         name: 'LOGLEVEL'
         value: 'INFO'
-      } 
+      }
     ]
   }
 }
@@ -726,7 +726,7 @@ module dataIngestion './core/host/functions.bicep' = {
         name: 'AZURE_KEY_VAULT_NAME'
         value: keyVault.outputs.name
       }
-      {      
+      {
         name: 'FUNCTION_APP_NAME'
         value: dataIngestionFunctionAppName
       }
@@ -737,7 +737,7 @@ module dataIngestion './core/host/functions.bicep' = {
       {
         name: 'SEARCH_INDEX_NAME'
         value: searchIndex
-      } 
+      }
       {
         name: 'SEARCH_ANALYZER_NAME'
         value: searchAnalyzerName
@@ -801,7 +801,7 @@ module dataIngestion './core/host/functions.bicep' = {
       {
         name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
         value: 'true'
-      }   
+      }
       {
         name: 'AzureWebJobsFeatureFlags'
         value: 'EnableWorkerIndexing'
@@ -809,8 +809,8 @@ module dataIngestion './core/host/functions.bicep' = {
       {
         name: 'LOGLEVEL'
         value: 'INFO'
-      }       
-    ]  
+      }
+    ]
   }
 }
 
@@ -860,8 +860,8 @@ module cognitiveServices 'core/ai/cognitiveservices.bicep' = {
     sku: {
       name: 'S0'
     }
-    secretsNames: { 
-      secretName01: 'formRecKey' 
+    secretsNames: {
+      secretName01: 'formRecKey'
       secretName02: 'speechKey'
     }
     keyVaultName: keyVault.outputs.name
@@ -892,12 +892,12 @@ module openAi 'core/ai/cognitiveservices.bicep' = {
     publicNetworkAccess: networkIsolation?'Disabled':'Enabled'
     tags: tags
     sku: {
-      name: 'S0' 
+      name: 'S0'
     }
-    secretsNames: { 
+    secretsNames: {
       secretName01: 'azureOpenAIKey'
     }
-    keyVaultName: keyVault.outputs.name    
+    keyVaultName: keyVault.outputs.name
     deployments: [
       {
         name: chatGptDeploymentName
@@ -922,7 +922,7 @@ module openAi 'core/ai/cognitiveservices.bicep' = {
           name: 'Standard'
           capacity: embeddingsDeploymentCapacity
         }
-      }      
+      }
     ]
   }
 }
