@@ -9,9 +9,11 @@ $reposGitCloneArguments = @(
     #     gpt-rag-ingestion
     #     gpt-rag-orchestrator
     #     gpt-rag-frontend
-    'https://github.com/Azure/gpt-rag-ingestion',
+#    'https://github.com/Azure/gpt-rag-ingestion',
+    '-b customized  https://github.com/Dav1dV/gpt-rag-ingestion',
     'https://github.com/Azure/gpt-rag-orchestrator',
-    'https://github.com/Azure/gpt-rag-frontend'
+#    'https://github.com/Azure/gpt-rag-frontend'
+    '-b customized  https://github.com/Dav1dV/gpt-rag-frontend'
 )
 
 #$gitCloneOptions = '--single-branch'  # for all repositories
