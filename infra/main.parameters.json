@@ -41,6 +41,9 @@
     "searchAnalyzerName": {
       "value": "standard"
     },
+    "searchIndexInterval": {
+      "value": ""
+    },
     "speechRecognitionLanguage": {
       "value": "en-US"
     },
