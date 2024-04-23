@@ -5,7 +5,7 @@ metadata:
   template: azure-gpt-rag
 services:
   dataIngest:
-    # project is temporally pulled fro its repo during deployment.
+    # project is temporarily pulled from its repo during deployment.
     project: ./.azure/gpt-rag-ingestion
     language: python
     host: function
